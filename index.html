@@ -126,6 +126,18 @@ section{padding:92px 0}
 .facts .rate dd small{font-size:.6em;margin-left:2px}
 
 .tour{background:var(--paper-2)}
+.games{background:var(--bg);padding:56px 0}
+.game-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.game-card{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--fg);background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:24px 24px 22px;position:relative;overflow:hidden;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.game-card::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--jade),var(--gold))}
+.game-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(14,28,43,.14);border-color:var(--jade)}
+.game-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.game-card .gk{font-size:12.5px;font-weight:500;color:var(--jade);letter-spacing:.06em}
+.game-card b{font-family:var(--serif);font-size:23px;font-weight:700}
+.game-card small{margin-bottom:10px;font-size:14.5px;line-height:1.6;color:var(--slate);word-break:keep-all}
+.game-card .go{margin-top:auto;align-self:flex-start;font-size:14px;font-weight:500;color:#fff;background:var(--jade);border-radius:999px;padding:8px 18px}
 .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:34px;flex-wrap:wrap}
 .sec-head h2{font-size:clamp(25px,3.4vw,34px)}
 .sec-head p{margin:0;color:var(--slate);font-size:15px;word-break:keep-all}
@@ -326,6 +338,29 @@ footer{background:var(--ink);color:#7C8D8C;font-size:13px;padding:0 0 42px}
         <div><dt>장소</dt><dd>오류고등학교</dd></div>
         <div><dt>신청기간</dt><dd>2026년 10월 25일 (목) 18:00 ~ 2026년 11월 5일 (목) 24:00</dd></div>
       </dl>
+    </div>
+  </div>
+</section>
+
+<section class="games" id="games">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>VR탐방 게임</h2>
+      <p>교정 사진으로 즐기는 두 가지 게임에 도전해 보세요</p>
+    </div>
+    <div class="game-grid">
+      <a class="game-card" href="treasure-hunt.html">
+        <span class="gk">게임 1</span>
+        <b>VR 보물찾기</b>
+        <small>교정 일곱 곳에 숨은 보물 35개를 찾으며 장소마다 숨은 이야기를 읽어 보세요.</small>
+        <span class="go">보물찾기 시작 →</span>
+      </a>
+      <a class="game-card" href="spot-the-difference.html">
+        <span class="gk">게임 2</span>
+        <b>틀린 그림 찾기</b>
+        <small>제한 시간 안에 교정 사진 속 다른 곳을 찾아 레벨을 올려 보세요.</small>
+        <span class="go">틀린 그림 찾기 시작 →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -624,6 +659,26 @@ var PANO_BIO="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAY
     else { bgm.play().then(function(){ setPlayingUI(true); }).catch(function(){}); }
   });
   startBgm();
+})();
+</script>
+<script>
+// 게임 카드 링크: 게임이 같은 저장소에 있는 GitHub Pages(oryu2027 등)에서는 파일 이름 그대로(계정이 바뀌어도 동작),
+// 게임이 없는 oryu2026이나 내려받아 연 파일에서는 oryu2027의 게임 주소로 연결
+(function(){
+  var GAMES='https://oryu2027.github.io/oryu/';
+  var local=/\.github\.io$/.test(location.hostname) && location.hostname!=='oryu2026.github.io';
+  if(local) return;
+  Array.prototype.forEach.call(document.querySelectorAll('a.game-card'),function(a){
+    var f=a.getAttribute('href'); if(!/^https?:/.test(f)) a.href=GAMES+f;
+  });
+})();
+</script>
+<script>
+// 게임에서 '브로셔로 돌아가기'로 왔을 때(#games) 페이지가 다 그려진 뒤 게임 영역으로 이동
+(function(){
+  if(location.hash!=='#games') return;
+  function go(){ var g=document.getElementById('games'); if(g) g.scrollIntoView({block:'start'}); }
+  window.addEventListener('load',function(){ go(); setTimeout(go,400); });
 })();
 </script>
 </body>
