@@ -21,19 +21,20 @@
   --fg:var(--ink);
   --bg:var(--paper);
   --card:#F7F8F4;
+  --life-bg:#FFFFFF;
   --serif:"Gowun Batang",'Nanum Myeongjo',Batang,serif;
   --sans:"IBM Plex Sans KR","Malgun Gothic",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#0B1520; --paper-2:#132030; --card:#122031;
+    --paper:#0B1520; --paper-2:#132030; --card:#122031; --life-bg:#101B28;
     --fg:#E8ECE6; --bg:#0B1520; --ink:#E8ECE6;
     --jade:#57B3A6; --gold:#E0B25C; --slate:#9CAAB4;
     --line:rgba(232,236,230,.18);
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0B1520; --paper-2:#132030; --card:#122031;
+  --paper:#0B1520; --paper-2:#132030; --card:#122031; --life-bg:#101B28;
   --fg:#E8ECE6; --bg:#0B1520; --ink:#E8ECE6;
   --jade:#57B3A6; --gold:#E0B25C; --slate:#9CAAB4;
   --line:rgba(232,236,230,.18);
@@ -149,6 +150,7 @@ section{padding:92px 0}
 .spot-card b{display:block;font-family:var(--serif);font-size:19px;font-weight:700;margin-bottom:8px}
 .spot-card small{display:block;font-size:14px;line-height:1.6;color:var(--slate);font-weight:300;word-break:keep-all}
 
+.life{background:var(--life-bg)}
 .life .rows{border-top:1px solid var(--line)}
 .life .row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;
   padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
@@ -315,29 +317,6 @@ footer{background:var(--ink);color:#7C8D8C;font-size:13px;padding:0 0 42px}
         <div><h3>공감과 소통의 예체능 교육</h3><div class="k">감성 · 창의</div></div>
         <p>배드민턴·축구·테니스·클라이밍 등 다양한 체육활동과 밴드 정기연주회, 미술·음악 교과 연계 진로탐색활동으로 감성을 채우고 창의를 피웁니다.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="inquiry" id="inquiry">
-  <div class="wrap">
-    <div class="gform">
-      <div class="gform-bar"></div>
-      <div class="gform-row">
-        <div class="gform-copy">
-          <span class="gkicker">참여 신청</span>
-          <h2>오류고등학교 <span class="oc">오픈캠퍼스</span> 참여신청</h2>
-          <p>2026학년도 오류고등학교 오픈캠퍼스 진로체험</p>
-        </div>
-        <a class="gsend" href="https://naver.me/GSQq9xXV" target="_blank" rel="noopener">참여 신청하기 ↗</a>
-      </div>
-      <dl class="ginfo">
-        <div><dt>대상</dt><dd>관내 중학교 3학년 희망 학생 및 학부모 <span>(사전 온라인 신청, OO명 내외)</span></dd></div>
-        <div><dt>행사명</dt><dd>2026학년도 오류고등학교 오픈캠퍼스 진로체험</dd></div>
-        <div><dt>일시</dt><dd>2026년 11월 11일 (수) 13:00~15:00</dd></div>
-        <div><dt>장소</dt><dd>오류고등학교</dd></div>
-        <div><dt>신청기간</dt><dd>2026년 10월 25일 (목) 18:00 ~ 2026년 11월 5일 (목) 24:00</dd></div>
-      </dl>
     </div>
   </div>
 </section>
